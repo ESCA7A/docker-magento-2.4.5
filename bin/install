@@ -1,3 +1,16 @@
 #!/bin/bash
 
-curl -s https://raw.githubusercontent.com/markshust/docker-magento/master/lib/onelinesetup | bash -s -- local.magento 2.4.5
+if [ "$1" = "$@" ]
+then
+  bin/download 2.4.5
+
+  if [ -n $1 ]
+  then
+    bin/setup $1
+  else
+    bin/setup local.magento
+  fi
+else
+  echo 'please setup 1 parameter: bin/install local.my.site'
+fi
+
