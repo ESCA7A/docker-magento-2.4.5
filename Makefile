@@ -62,6 +62,7 @@ help:
 	@echo "$(call format,stop,'Stop all containers.')"
 	@echo "$(call format,update,'Update your project to the latest version of docker-magento.')"
 	@echo "$(call format,xdebug,'Disable or enable Xdebug.')"
+	@echo "$(call format,install <hostname>, 'Auto installation magento 2 framework.')"
 
 bash:
 	@./bin/bash
