@@ -12,7 +12,11 @@ git clone git@github.com:shellpea/mothercare src
 
 bin/start
 
-cd src && git checkout -f update-to-2.4.4 && cd ../
+cd src 
+
+git checkout -f update-to-2.4.4 
+
+cd ../
 
 bin/setup-composer-auth
 
