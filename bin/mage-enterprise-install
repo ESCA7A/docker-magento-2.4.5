@@ -2,27 +2,21 @@
 
 DOMAIN=$1
 
-if [ -z "$1" ]
-  then
-    echo "please enter domain";
-    exit;
-fi
-
-if ! grep -q "$DOMAIN" /etc/hosts ; 
+if [ ! grep -q "$DOMAIN" /etc/hosts ]
 then
-	echo "Your system password is needed to add an entry to /etc/hosts..." ;
-	echo "127.0.0.1 ::1 $DOMAIN" | sudo tee -a /etc/hosts ;
+	echo "Your system password is needed to add an entry to /etc/hosts..."
+	echo "127.0.0.1 ::1 $DOMAIN" | sudo tee -a /etc/hosts
 fi
 
-git clone git@github.com:shellpea/mothercare src ;
+git clone git@github.com:shellpea/mothercare src
 
-bin/start ;
+bin/start
 
-cd src && git checkout -f update-to-2.4.4 && cd ..;
+cd src && git checkout -f update-to-2.4.4 && cd ../
 
-bin/setup-composer-auth ; 
+bin/setup-composer-auth
 
-bin/composer install; 
+bin/composer install
 
 bin/magento setup:install \
 --base-url=https://"$DOMAIN" \
