@@ -10,17 +10,13 @@ fi
 
 git clone git@github.com:shellpea/mothercare src
 
-bin/start
+bin/start &&
 
-cd src 
+cd src ; git checkout -f update-to-2.4.4 ; cd ../ &&
 
-git checkout -f update-to-2.4.4 
+bin/setup-composer-auth &&
 
-cd ../
-
-bin/setup-composer-auth
-
-bin/composer install
+bin/composer install &&
 
 bin/magento setup:install \
 --base-url=https://"$DOMAIN" \
