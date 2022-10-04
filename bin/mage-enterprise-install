@@ -54,4 +54,6 @@ bin/magento s:up &&
 bin/magento s:d:c &&
 bin/magento index:reindex
 
-echo 'installation complete'; exit
+echo "\n installation complete \n" &&
+
+bin/restart && exit
