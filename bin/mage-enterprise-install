@@ -2,6 +2,12 @@
 
 DOMAIN=$1
 
+if [ -z "$1" ]
+  then
+    echo "please enter domain";
+    exit;
+fi
+
 if ! grep -q "$DOMAIN" /etc/hosts ; 
 then
 	echo "Your system password is needed to add an entry to /etc/hosts..." ;
