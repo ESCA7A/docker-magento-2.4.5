@@ -37,19 +37,21 @@ bin/magento setup:install \
 --elasticsearch-host=172.17.0.1 \
 --elasticsearch-port=9200 \
 --elasticsearch-index-prefix=magento2 \
---elasticsearch-timeout=15 ;
+--elasticsearch-timeout=15 &&
 
-echo "Set https://${DOMAIN}/ to web/secure/base_url and web/secure/base_url" ;
+echo "Set https://${DOMAIN}/ to web/secure/base_url and web/secure/base_url" &&
 
-bin/clinotty bin/magento config:set web/secure/base_url https://"$DOMAIN"/ ;
+bin/clinotty bin/magento config:set web/secure/base_url https://"$DOMAIN"/ &&
 
-bin/clinotty bin/magento config:set web/unsecure/base_url https://"$DOMAIN"/ ;
+bin/clinotty bin/magento config:set web/unsecure/base_url https://"$DOMAIN"/ &&
 
-bin/setup-ssl "$DOMAIN" ;
+bin/setup-ssl "$DOMAIN" &&
 
-cp src/nginx.conf.sample src/nginx.conf ;
+cp src/nginx.conf.sample src/nginx.conf &&
 
 # prepare
-bin/magento s:up ;
-bin/magento s:d:c ;
-bin/magento index:reindex ;
+bin/magento s:up &&
+bin/magento s:d:c &&
+bin/magento index:reindex
+
+echo 'installation complete'; exit
