@@ -1,3 +1,7 @@
+### this repository was created to learn the magento 2 framework for educational purposes
+
+> install the framework with one command and start learning magento 2
+
 DEPLOYMENT
 
 * run terminal
