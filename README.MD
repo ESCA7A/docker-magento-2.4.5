@@ -5,12 +5,13 @@
 DEPLOYMENT
 
 * run terminal
-```angular2html
+```bash
 #
 user@host:>$ git clone git@github.com:ESCA7A/docker-magento.git example-dir
-#cloning repo...
+#cloning repo...  >
 #
 user@host:>$ cd example-dir
+
 ```
 * run `bin/install mylocalhost.com` 
 * run `bin/help` for more info or go to <a href=https://github.com/markshust/docker-magento>official source
@@ -32,3 +33,9 @@ user@host:>$ cd мой_проект
 ```
 * запустите команду `bin/install mylocalhost.com` 
 * запустите команду `bin/help` для остальной информации следуйте на <a href=https://github.com/markshust/docker-magento>официальный ресурс
+  
+##### Процесс развертывания существующего проекта magento 2
+```bash
+user@host:>$ bin/mage-install 'MY.LOCALHOST.COM'
+
+```
