@@ -10,11 +10,7 @@ fi
 
 git clone git@github.com:shellpea/mothercare src
 
-bin/restart &&
-
 cd src ; git checkout -f update-to-2.4.4 ; cd ../ &&
-
-bin/setup-composer-auth &&
 
 bin/composer install &&
 
@@ -51,8 +47,8 @@ cp src/nginx.conf.sample src/nginx.conf &&
 
 # prepare
 bin/magento s:up &&
-bin/magento index:reindex
-bin/magento deploy:mode:set developer
+bin/magento deploy:mode:set developer &&
+bin/magento module:disable Magento_TwoFactorAuth &&
 
 echo "\n installation complete \n" &&
 
